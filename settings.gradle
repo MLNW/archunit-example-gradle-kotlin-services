@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 include(":services:service-a")
 include(":services:service-b")
 include(":services:service-c")
+include(":services:tests")

@@ -1,0 +1,10 @@
+plugins {
+    id("spring-boot-kotlin-conventions")
+}
+
+dependencies {
+    testImplementation("com.tngtech.archunit:archunit-junit5:0.18.0")
+    testImplementation(project(":services:service-a"))
+    testImplementation(project(":services:service-b"))
+    testImplementation(project(":services:service-c"))
+}
