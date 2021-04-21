@@ -6,7 +6,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @AnalyzeClasses(
-    packages = ["example"],
+    packages = ["BOOT-INF.classes.example"],
     importOptions = [ImportOption.DoNotIncludeTests::class],
 )
 class ArchitectureTests {
