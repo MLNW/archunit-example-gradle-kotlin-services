@@ -1,10 +1,12 @@
 plugins {
-    id("spring-boot-kotlin-conventions")
+    id("kotlin-common-conventions")
 }
 
 dependencies {
     testImplementation("com.tngtech.archunit:archunit-junit5:0.18.0")
-    testImplementation(project(":services:service-a"))
-    testImplementation(project(":services:service-b"))
-    testImplementation(project(":services:service-c"))
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux:2.4.3")
+
+    testImplementation(project(path: ":services:service-a", configuration: "classesJar"))
+    testImplementation(project(path: ":services:service-b", configuration: "classesJar"))
+    testImplementation(project(path: ":services:service-c", configuration: "classesJar"))
 }

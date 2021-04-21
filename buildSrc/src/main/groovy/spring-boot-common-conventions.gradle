@@ -9,3 +9,22 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 }
+
+task buildClassesJar(type: Jar, dependsOn: classes) {
+    archiveFileName = "$project.name-$project.version-classes.jar"
+    from sourceSets.main.output
+    include "**/*.class"
+}
+
+assemble.dependsOn(buildClassesJar)
+
+configurations {
+    classesJar {
+        canBeConsumed = true
+        canBeResolved = false
+    }
+}
+
+artifacts {
+    classesJar(buildClassesJar)
+}
