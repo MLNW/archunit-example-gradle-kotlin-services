@@ -10,21 +10,21 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
 }
 
-task buildClassesJar(type: Jar, dependsOn: classes) {
-    archiveFileName = "$project.name-$project.version-classes.jar"
+task classesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = "classes"
     from sourceSets.main.output
     include "**/*.class"
 }
 
-assemble.dependsOn(buildClassesJar)
+assemble.dependsOn(classesJar)
 
 configurations {
-    classesJar {
+    classesJars {
         canBeConsumed = true
         canBeResolved = false
     }
 }
 
 artifacts {
-    classesJar(buildClassesJar)
+    classesJars(classesJar)
 }

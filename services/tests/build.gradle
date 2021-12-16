@@ -3,10 +3,13 @@ plugins {
 }
 
 dependencies {
-    testImplementation("com.tngtech.archunit:archunit-junit5:0.18.0")
-    testImplementation("org.springframework.boot:spring-boot-starter-webflux:2.4.3")
+    testImplementation("com.tngtech.archunit:archunit-junit5:0.22.0")
 
-    testImplementation(project(path: ":services:service-a", configuration: "classesJar"))
-    testImplementation(project(path: ":services:service-b", configuration: "classesJar"))
-    testImplementation(project(path: ":services:service-c", configuration: "classesJar"))
+    testImplementation('org.springframework.boot:spring-boot-starter-logging') {
+        because("we don't want to configure logging ourselves.")
+    }
+
+    testImplementation(project(path: ":services:service-a", configuration: "classesJars"))
+    testImplementation(project(path: ":services:service-b", configuration: "classesJars"))
+    testImplementation(project(path: ":services:service-c", configuration: "classesJars"))
 }
